@@ -28,7 +28,6 @@ const Subcategoria = mongoose.model('Subcategoria', publib),
 // Exportamos el modelo para usarlo en otros ficheros
 module.exports = {
     Subcategoria,
-    
     Categoria,
    
 };

@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 app.use('/', usuarioRuta)
 app.use(cors({
-    origin: 'http://localhost:4200',
-    credentials: true
+    origin: 'http://localhost:4200/',
+    
 }))
 module.exports = app

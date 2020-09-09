@@ -1,26 +1,27 @@
 ;
 'use strict'
-
-    fs = require('fs')
-const { ok } = require('assert')
-const { json } = require('body-parser')
+fs = require('fs')
 const mongodb = require('../model/models')
-const { mongo } = require('../config/db')
 
 const prueba = (req, res)=>{
     res.status(200).send('Hola api')
 }
+const añadirCategoria =(req,res)=>{
+     mongodb.Subcategoria.create(req.body).then(()=>{
+         res.status(200)
+         res.json('creadoexitosamente')
+     })
+}
 const getCategorias = async(req, res)=>{
-    console.log('cate')
     mongodb.Subcategoria.find({})
     .populate({path: "categoria"})
     .exec((err,doc)=>{
       if(err){
         res.status(404)
-        res.json('no hay publicaciones activas')
+        res.json('no hay data')
       }else if(doc.length===0){
         res.status(404)
-        res.json('no hay publicaciones activas')
+        res.json('no hay data')
       }else{
         res.status(200)
         res.json(doc)
@@ -30,7 +31,6 @@ const getCategorias = async(req, res)=>{
 const deleteCategoria =async(req, res)=>{
     mongodb.Categoria.remove({
         _id: req.params.id
-    
   }).then(()=>{
     res.status(200)
     res.json('eliminado exitosamente')
@@ -40,7 +40,6 @@ const deleteCategoria =async(req, res)=>{
 module.exports={
     prueba,
     getCategorias,
-  
+    añadirCategoria,
     deleteCategoria,
- 
 }
