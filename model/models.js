@@ -1,3 +1,4 @@
+
 'use strict'
 // Cargamos el módulo de mongoose
 var mongoose =  require('mongoose');
@@ -9,10 +10,7 @@ var publib = Schema({
     nombre: String,
     descripcion: String,
     fechaCreacion: String,
-    categoria: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'categoria',
-    },
+    
     
 },
 { timestamps: true });

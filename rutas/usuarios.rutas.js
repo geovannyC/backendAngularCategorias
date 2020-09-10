@@ -6,7 +6,7 @@ usuarioControl = require('../controles/usuarios.control')
 
 api.get('/prueba', usuarioControl.prueba)
 api.get('/verCategorias',usuarioControl.getCategorias)
-api.post('/añadirCategoria', usuarioControl.añadirCategoria)
+api.post('/addcategoria', usuarioControl.añadirCategoria)
 api.get('/deleteUser/:id', usuarioControl.deleteCategoria)
 
 

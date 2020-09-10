@@ -7,9 +7,11 @@ const prueba = (req, res)=>{
     res.status(200).send('Hola api')
 }
 const añadirCategoria =(req,res)=>{
-     mongodb.Subcategoria.create(req.body).then(()=>{
+  console.log(req.body)
+     mongodb.Subcategoria.create(req.body).then((data)=>{
          res.status(200)
          res.json('creadoexitosamente')
+         console.log('creado')
      })
 }
 const getCategorias = async(req, res)=>{
@@ -29,13 +31,18 @@ const getCategorias = async(req, res)=>{
     })
 }
 const deleteCategoria =async(req, res)=>{
-    mongodb.Categoria.remove({
+  console.log(req.params.id)
+    mongodb.Subcategoria.findOneAndRemove({
         _id: req.params.id
   }).then(()=>{
     res.status(200)
     res.json('eliminado exitosamente')
     console.log('exito')
-  })
+  }
+     
+    
+
+  )
 }
 module.exports={
     prueba,
