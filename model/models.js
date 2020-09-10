@@ -5,8 +5,8 @@ var mongoose =  require('mongoose');
 // Usaremos los esquemas
 var Schema = mongoose.Schema;
 // Creamos el objeto del esquema y sus atributos
-var publib = Schema({
-    cod_categoria: String,
+var subcategoria = Schema({
+    cod_categoria: mongoose.Schema.ObjectId,
     nombre: String,
     descripcion: String,
     fechaCreacion: String,
@@ -15,11 +15,11 @@ var publib = Schema({
 },
 { timestamps: true });
 const categoria = Schema({
-    descripcion: String,
+    descripcion: String
 },
 {timestamps: true})
 
-const Subcategoria = mongoose.model('Subcategoria', publib),
+const Subcategoria = mongoose.model('Subcategoria', subcategoria),
         
         Categoria = mongoose.model('categoria', categoria);
        
