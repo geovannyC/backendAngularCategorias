@@ -22,7 +22,7 @@ const getCategorias = async(req, res)=>{
         res.status(404)
         res.json('no hay data')
       }else if(doc.length===0){
-        res.status(404)
+        res.status(200)
         res.json('no hay data')
       }else{
         res.status(200)
